@@ -26,10 +26,10 @@ html {
 
 .input-section textarea {
   width: 100%;
-  min-height: 100px;
+  min-height: 150px;
   padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ced4da;
+  margin: 10px 0;
+  border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
 }
@@ -41,16 +41,10 @@ html {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.2s;
-}
-
-.input-section button:hover:not(:disabled) {
-  background-color: #0056b3;
 }
 
 .input-section button:disabled {
-  background-color: #6c757d;
+  background-color: #ccc;
   cursor: not-allowed;
 }
 
@@ -65,20 +59,12 @@ html {
 }
 
 .error-message {
-  margin: 20px 0;
-  padding: 10px;
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-  border-radius: 4px;
+  color: #dc3545;
+  margin: 10px 0;
 }
 
 .result-section {
-  margin: 20px 0;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 30px;
 }
 
 .result-details {
@@ -209,29 +195,28 @@ input[type="file"]:disabled {
 }
 
 .result-bar {
-  margin: 15px 0;
+  margin: 10px 0;
   display: flex;
   align-items: center;
 }
 
 .result-label {
-  width: 100px;
+  width: 120px;
   text-align: right;
-  padding-right: 10px;
-  font-weight: bold;
+  margin-right: 10px;
 }
 
 .bar-container {
   flex-grow: 1;
-  height: 25px;
-  background-color: #e9ecef;
+  background-color: #f0f0f0;
   border-radius: 4px;
+  height: 24px;
   position: relative;
-  overflow: hidden;
 }
 
 .bar {
   height: 100%;
+  border-radius: 4px;
   transition: width 0.3s ease;
 }
 
@@ -240,9 +225,8 @@ input[type="file"]:disabled {
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  color: #000;
-  font-size: 0.9em;
-  font-weight: bold;
+  font-size: 12px;
+  color: #333;
 }
 
 .main-emotion {
@@ -281,11 +265,12 @@ input[type="file"]:disabled {
 }
 
 .chart-container {
-  margin: 20px 0;
-  padding: 20px;
-  background-color: white;
+  background: var(--chart-background);
+  color: var(--text-color);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
 .legend {
@@ -314,6 +299,7 @@ input[type="file"]:disabled {
 .value-label {
   font-size: 12px;
   font-weight: bold;
+  fill: var(--text-color);
 }
 
 .interpretation {
@@ -322,7 +308,6 @@ input[type="file"]:disabled {
 }
 
 .bar:hover {
-  opacity: 0.8;
   cursor: pointer;
 }
 
@@ -374,4 +359,112 @@ input[type="file"]:disabled {
 .negative.significant { background-color: rgba(220, 53, 69, 0.1); }
 .neutral.significant { background-color: rgba(108, 117, 125, 0.1); }
 .speech.significant { background-color: rgba(23, 162, 184, 0.1); }
-.skip.significant { background-color: rgba(255, 193, 7, 0.1); } 
+.skip.significant { background-color: rgba(255, 193, 7, 0.1); }
+
+/* Добавим стили для плавных переходов */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Обновим существующие стили с учетом темы */
+.chart-container {
+  background: var(--chart-background);
+  color: var(--text-color);
+}
+
+.value-label {
+  fill: var(--text-color);
+}
+
+.chart-legend {
+  background-color: var(--chart-background);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #f5f7fa 0%,
+    #e4e9f2 100%
+  );
+  transition: background 0.3s ease;
+}
+
+/* Для темной темы */
+body[data-theme='dark'] {
+  background: linear-gradient(
+    135deg,
+    #1a1a2e 0%,
+    #16213e 50%,
+    #1a1a2e 100%
+  );
+}
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--heading-color);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chart-description {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.value-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.messages-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.messages-container::-webkit-scrollbar {
+  display: none;
+} 

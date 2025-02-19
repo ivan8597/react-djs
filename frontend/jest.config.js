@@ -1,13 +1,17 @@
 module.exports = {
+  preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  roots: ['<rootDir>/src'],
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+  },
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '^d3$': '<rootDir>/node_modules/d3/dist/d3.min.js',
+    '^d3-(.*)$': '<rootDir>/node_modules/d3-$1/dist/d3-$1.min.js'
   },
-  transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest',
-  },
-  testMatch: ['**/__tests__/**/*.js', '**/?(*.)+(spec|test).js'],
-  moduleFileExtensions: ['js', 'jsx', 'json', 'node']
+  transformIgnorePatterns: [
+    '/node_modules/(?!d3)',
+  ],
+  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
 }; 
