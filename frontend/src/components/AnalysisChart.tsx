@@ -169,11 +169,14 @@ const AnalysisChart: React.FC<Props> = ({ data }) => {
 
   if (!data || data.length === 0) {
     return (
-      <div style={{ 
-        textAlign: 'center', 
-        padding: '20px',
-        color: '#666' 
-      }}>
+      <div 
+        data-testid="empty-container"
+        style={{ 
+          textAlign: 'center', 
+          padding: '20px',
+          color: '#666' 
+        }}
+      >
         Нет данных для отображения
       </div>
     );
@@ -190,7 +193,9 @@ const AnalysisChart: React.FC<Props> = ({ data }) => {
       <p>График показывает распределение эмоциональной окраски текста по категориям.</p>
       <p>Значения представлены в процентах от общего объема анализируемого текста.</p>
       <div 
-        ref={chartRef} 
+        ref={chartRef}
+        data-testid="chart-container" 
+        className="chart-container"
         style={{ 
           width: '100%', 
           maxWidth: '800px',
